@@ -1,6 +1,6 @@
 #Kali Linux Lab Image Reset
 #Reset Empire
-cd /opt/Empire && setup/install.sh
+cd /opt/Empire && rm data/empire.db && python setup/setup_database.py && rm -rf ./downloads
 #Reset CME
 rm ~/.cme/workspaces/default/*.db
 rm ~/.cme/logs/*.*
@@ -18,7 +18,6 @@ rm -r ~/.cache/mozilla/firefox/*.default/*
 Clear Directories
 rm -r ~/Desktop/*
 rm ~/*.*
-#clear history
 
 #Recreate Openvas-scripts
 cat << EOF > ~/Desktop/openvas-stop.sh
@@ -43,5 +42,5 @@ rm -rf /opt/impacket/
 cd /opt && git clone https://github.com/SecureAuthCorp/impacket.git
 
 
-
+#clear history
 history -c
