@@ -39,4 +39,9 @@ sed -i 's/HTTP = Off/HTTP = On/' /etc/responder/Responder.conf
 sed -i 's/SMB = Off/SMB = On/' /etc/responder/Responder.conf
 sed -i 's/HTTPS = Off/HTTPS = On/' /etc/responder/Responder.conf
 
+rm -rf /opt/impacket/
+cd /opt && git clone https://github.com/SecureAuthCorp/impacket.git
+
+
+
 history -c
