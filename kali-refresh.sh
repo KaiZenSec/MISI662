@@ -12,7 +12,7 @@ msfdb reinit
 #Reset Nessus
 service nessusd stop
 sleep 5
-/opt/nessus/sbin/nessuscli fix --reset-all
+echo 'y' |/opt/nessus/sbin/nessuscli fix --reset-all
 
 #Reset FireFox
 rm -r ~/.cache/mozilla/firefox/*.default/*
