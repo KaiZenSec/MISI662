@@ -6,6 +6,12 @@ rm -rf /opt/Empire/downloads
 #Reset CME
 rm ~/.cme/workspaces/default/*.db
 rm ~/.cme/logs/*.*
+#reset CrackMapExec
+rm -r /opt/CrackMapExec
+pip install --user pipenv
+git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec /opt/CrackMapExec
+cd /opt/CrackMapExec && pipenv install && pipenv run python setup.py install
+
 #Reset MetaSploit
 msfdb reinit
 
@@ -19,7 +25,7 @@ rm -r ~/.cache/mozilla/firefox/*.default/*
 
 Clear Directories
 rm -r ~/Desktop/*
-rm ~/*.*
+find -maxdepth 1 ! -name Desktop ! -name Downloads ! -name . -exec rm -rv {} \;
 
 #Recreate Openvas-scripts
 cat << EOF > ~/Desktop/openvas-stop.sh
