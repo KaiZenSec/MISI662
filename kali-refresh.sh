@@ -1,6 +1,6 @@
 #Kali Linux Lab Image Reset
 #Reset Empire
-cd /opt/Empire && setup/reset.sh
+cd /opt/Empire && setup/install.sh
 #Reset CME
 rm ~/.cme/workspaces/default/*.db
 rm ~/.cme/logs/*.*
