@@ -1,3 +1,4 @@
+#!/bin/bash
 #Kali Linux Lab Image Reset
 #Reset Empire
 rm /opt/Empire/data/empire.db 
