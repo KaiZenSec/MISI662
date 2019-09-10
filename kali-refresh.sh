@@ -1,6 +1,8 @@
 #Kali Linux Lab Image Reset
 #Reset Empire
-cd /opt/Empire && rm data/empire.db && python setup/setup_database.py && rm -rf ./downloads
+rm /opt/Empire/data/empire.db 
+python /opt/Empire/setup/setup_database.py 
+rm -rf /opt/Empire/downloads
 #Reset CME
 rm ~/.cme/workspaces/default/*.db
 rm ~/.cme/logs/*.*
