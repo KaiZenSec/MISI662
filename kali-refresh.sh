@@ -2,7 +2,6 @@
 #Kali Linux Lab Image Reset
 #Reset Empire
 rm /opt/Empire/data/empire.db 
-python /opt/Empire/setup/setup_database.py 
 rm -rf /opt/Empire/downloads
 #Reset CME
 rm ~/.cme/workspaces/default/*.db
@@ -47,3 +46,4 @@ cd /opt && git clone https://github.com/SecureAuthCorp/impacket.git
 
 #clear history
 history -c
+python /opt/Empire/setup/setup_database.py
