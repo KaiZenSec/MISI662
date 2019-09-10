@@ -9,7 +9,8 @@ rm ~/.cme/logs/*.*
 #reset CrackMapExec
 rm -r /opt/CrackMapExec
 pip install --user pipenv
-git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec /opt/CrackMapExec
+cd /opt/
+git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec
 cd /opt/CrackMapExec && pipenv install && pipenv run python setup.py install
 
 #Reset MetaSploit
@@ -25,6 +26,7 @@ rm -r ~/.cache/mozilla/firefox/*.default/*
 
 Clear Directories
 rm -r ~/Desktop/*
+cd ~
 find -maxdepth 1 ! -name Desktop ! -name Downloads ! -name . -exec rm -rv {} \;
 
 #Recreate Openvas-scripts
