@@ -19,4 +19,24 @@ Clear Directories
 rm -r ~/Desktop/*
 rm ~/*.*
 #clear history
+
+#Recreate Openvas-scripts
+cat << EOF > ~/Desktop/openvas-stop.sh
+\#!/bin/bash
+\#Stop OpenVAS servcies.
+openvas-stop
+EOF
+
+cat << EOF > ~/Desktop/openvas-start.sh
+\#!/bin/bash
+\#Start OpenVAS servcies.
+openvas-start
+echo 'Point your browser to https://127.0.0.1:9392'
+EOF
+
+#Set Responder.conf to default
+sed -i 's/HTTP = Off/HTTP = On/' /etc/responder/Responder.conf
+sed -i 's/SMB = Off/SMB = On/' /etc/responder/Responder.conf
+sed -i 's/HTTPS = Off/HTTPS = On/' /etc/responder/Responder.conf
+
 history -c
