@@ -1,17 +1,11 @@
 #!/bin/bash
-#Kali Linux Lab Image Reset
+#Kali Linux Lab Image Reset for MISI662
 #Reset Empire
 rm /opt/Empire/data/empire.db 
 rm -rf /opt/Empire/downloads
 #Reset CME
-rm ~/.cme/workspaces/default/*.db
-rm ~/.cme/logs/*.*
-#reset CrackMapExec
+rm ~/.cme/
 rm -r /opt/CrackMapExec
-pip install --user pipenv
-cd /opt/
-git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec
-cd /opt/CrackMapExec && pipenv install && pipenv run python setup.py install
 
 #Reset MetaSploit
 msfdb reinit
@@ -48,10 +42,27 @@ sed -i 's/HTTP = Off/HTTP = On/' /etc/responder/Responder.conf
 sed -i 's/SMB = Off/SMB = On/' /etc/responder/Responder.conf
 sed -i 's/HTTPS = Off/HTTPS = On/' /etc/responder/Responder.conf
 
+#Remove Impacket
 rm -rf /opt/impacket/
-cd /opt && git clone https://github.com/SecureAuthCorp/impacket.git
 
+#Get gits
+#Git Imapcket and install
+git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket/
+cd /opt/impacket && pip install .
+#Git Lee Baird Discover Scripts
+git clone https://github.com/leebaird/discover /opt/discover/
+#Git MITM6 and install
+git clone https://github.com/fox-it/mitm6.git /opt/mitm6
+cd /opt/mitm6 && python setup.py install
+pip install --user pipenv
+cd /opt/
+git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec
+cd /opt/CrackMapExec && pipenv install && pipenv run python setup.py install
+
+#This script updates kali and all git projects
+cd /opt/discover && ./update.sh
 
 #clear history
 history -c
-python /opt/Empire/setup/setup_database.py
+#Setup Empire DB
+#python /opt/Empire/setup/setup_database.py
