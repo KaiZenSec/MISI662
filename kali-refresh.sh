@@ -4,7 +4,7 @@
 rm /opt/Empire/data/empire.db 
 rm -rf /opt/Empire/downloads
 #Reset CME
-rm ~/.cme/
+rm -r ~/.cme/*
 rm -r /opt/CrackMapExec
 
 #Reset MetaSploit
