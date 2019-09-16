@@ -1,5 +1,7 @@
 #!/bin/bash
 #Kali Linux Lab Image Reset for MISI662
+#clear history
+history -c
 #Reset Empire
 rm /opt/Empire/data/empire.db 
 rm -rf /opt/Empire/downloads
@@ -62,7 +64,6 @@ cd /opt/CrackMapExec && pipenv install && pipenv run python setup.py install
 #This script updates kali and all git projects
 cd /opt/discover && ./update.sh
 
-#clear history
-history -c
+
 #Setup Empire DB
 #python /opt/Empire/setup/setup_database.py
